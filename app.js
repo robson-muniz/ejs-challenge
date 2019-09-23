@@ -19,9 +19,11 @@ let posts = [];
 
 
 app.get("/", function(req, res){
-  res.render("home", {startingContent:homeStartingContent});
-  console.log(posts);
-});
+  res.render("home", {
+    startingContent:homeStartingContent,
+    posts:posts
+  });
+  });
 
 app.get("/about", function(req, res){
   res.render("about", {aboutContent:aboutContent});
@@ -45,14 +47,9 @@ app.post("/compose", function(req, res){
   res.redirect("/");
 });
 
-
-
-
-
-
-
-
-
+app.get("/posts/:postName", function(req, res){
+  console.log(req.params.postName);
+});
 
 
 
